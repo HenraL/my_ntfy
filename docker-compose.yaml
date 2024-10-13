@@ -1,0 +1,18 @@
+services:
+  server:
+    restart: always
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "500k"
+        max-file: "1"
+    image: binwiederhier/ntfy
+    command: serve
+    environment:
+      - TZ=Europe/Paris
+    user: ${UID}:$(id -g)
+    volumes:
+      - ./ntfy/cache:/var/cache/ntfy
+      - ./ntfy/config:/etc/ntfy
+    ports:
+      - 80:80

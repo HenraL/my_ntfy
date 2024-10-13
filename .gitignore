@@ -1,0 +1,5 @@
+# ignore code editors config files
+**/.vscode/**
+
+# Ignore ntfy server file
+ntfy/config/server.yaml
